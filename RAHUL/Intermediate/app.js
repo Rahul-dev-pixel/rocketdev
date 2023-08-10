@@ -43,7 +43,7 @@ const checkPrime = (digit) =>
     }
     if(counter==2)
     {
-        console.log(chalk.greenBright("the given number"+ digit + "is prime"));
+        console.log(chalk.greenBright("the given number" + digit + "is prime"));
     }
     else
     {
@@ -51,3 +51,39 @@ const checkPrime = (digit) =>
     }
 }
 checkPrime(7);//calling checkPrime by giving value
+
+// Checking given no is polyndrome or not
+
+ const checkPolyndrome = (str) =>
+ {
+ console.log(str);
+ // using string.split to  char array
+let arr = str.split("")
+              
+// Display output
+console.log(arr);
+
+let revstr = arr.reverse(); // reversing the arr character array
+console.log(revstr);
+// joining to make revstr into string and compare with str
+let rev = revstr.join("");
+console.log(rev);
+if(str==rev)
+{
+    console.log(chalk.greenBright("Polyndrome"));
+}
+else
+console.log("Not a Polyndrome");
+
+/*
+if(arr==revstr)
+{
+ 
+ console.log(chalk.greenBright("Given string is polyndrome"));
+}
+else
+{
+    console.log(chalk.redBright("the given string is not polyndrome"));
+}*/
+ }
+ checkPolyndrome("MOM");
