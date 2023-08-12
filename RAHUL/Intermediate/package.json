@@ -9,6 +9,7 @@
   "author": "RahulMandala",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "chalk": "^4.0.0"
   }
 }
