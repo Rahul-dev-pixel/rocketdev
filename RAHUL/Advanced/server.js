@@ -1,27 +1,27 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
+const { default:mongoose} = require('mongoose');
+require('./Database/MongoConnection');
+
 
 app.get('/', (req, res) => {
-  res.send('Hello rahghghg!')
+  res.send('Welcome to  medical-advisor-api')
 })
 
 
-app.get('/east', (req, res) => {
-    res.send('Hello EastGodavari!')
-  })
-  
-  app.get('/West', (req, res) => {
-    res.send('Hello WestGodavari!')
-  })
+// MongoDB Connection Start
+const db =mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('mongo Database is connected successfully!');
+});
+// MongoDB Connection End
 
-  app.get('/North', (req, res) => {
-    res.send('Hello NorthGodavari!')
-  })
 
-  app.get('/South', (req, res) => {
-    res.send('Hello SouthGodavari!')
-  })
+app.get('/*', (req, res) => {
+  res.send('404 Invalid URL')
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
